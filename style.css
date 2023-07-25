@@ -10,7 +10,7 @@ body {
 
 .elevator-cont {
     right: 0;
-    /*transition: ease-in-out 0.4s;*/
+    transition: ease-in-out 0.4s;
 }
 
 /*.elevator-left-door {*/
@@ -24,6 +24,22 @@ body {
 /*.elevator-right-door {*/
 /*    right: 0;*/
 /*}*/
+
+.target-floor {
+    left: 65%;
+}
+
+.target-at-1-floor {
+    bottom: 3.5rem;
+}
+
+.target-at-2-floor {
+    bottom: 9.5rem;
+}
+
+.target-at-3-floor {
+    bottom: 15.5rem;
+}
 
 
 .human-at-1-floor {
