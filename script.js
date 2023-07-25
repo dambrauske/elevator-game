@@ -15,6 +15,23 @@ let targetFloor
 
 const targetFloorDisappear = () => {
     floorToGo.style.display = 'none'
+    floorToGo.style.transition = 'ease-in 0.2s'
+}
+
+const elevatorOpens = () => {
+    elevatorLeftDoor.classList.remove('close-left-door-anim')
+    elevatorRightDoor.classList.remove('close-right-door-anim')
+
+    elevatorLeftDoor.classList.add('open-left-door-anim')
+    elevatorRightDoor.classList.add('open-right-door-anim')
+}
+
+const elevatorCloses = () => {
+    elevatorLeftDoor.classList.remove('open-left-door-anim')
+    elevatorRightDoor.classList.remove('open-right-door-anim')
+
+    elevatorLeftDoor.classList.add('close-left-door-anim')
+    elevatorRightDoor.classList.add('close-right-door-anim')
 }
 
 
@@ -34,26 +51,13 @@ const generateTargetFloor = (min, max, excludedNum) => {
 
 // elevator functions
 
-const elevatorOpens = () => {
-    elevatorLeftDoor.style.transform = 'translateX(-100%)'
-    elevatorRightDoor.style.transform = 'translateX(100%)'
-}
-
-const elevatorIsClosed = () => {
-    elevator.style.backgroundColor = '#1f2123'
-}
-
-const elevatorIsOpen = () => {
-    elevator.style.backgroundColor = 'rgb(243 244 246)'
-}
-
-const elevatorCloses = () => {
-    elevatorLeftDoor.style.transform = 'translateX(400%)'
-    elevatorRightDoor.style.transform = 'translateX(-400%)'
+const elevatorZIndexIs10 = () => {
+    elevatorLeftDoor.style.zIndex = '10'
+    elevatorRightDoor.style.zIndex = '10'
 }
 
 
-const elevatorComesToHuman = () => {
+const elevatorArrives = () => {
     elevator.classList.remove('elevator-at-1-floor')
     elevator.classList.remove('elevator-at-2-floor')
     elevator.classList.remove('elevator-at-3-floor')
@@ -63,28 +67,41 @@ const elevatorComesToHuman = () => {
 // human behaviour functions
 
 const humanGoesToElevator = () => {
-    elevatorOpens()
+    human.style.transform = 'translateX(350%)'
+    human.style.transition = '0.4s ease'
+
     setTimeout(() => {
-        human.style.transform = 'translateX(350%)'
-        human.style.transition = 'ease-in-out 0.2s'
-        setTimeout(() => {
-            human.style.zIndex = '-1'
-        }, 500)
-    }, 250)
+        human.style.zIndex = '-1'
+    }, 800)
+
+    setTimeout(() => {
+        human.classList.remove(`human-at-${humanIsAtFloor}-floor`)
+        human.classList.add(`human-at-${targetFloor}-floor`)
+    }, 800)
+
 }
 
 const humanLeavesElevator = () => {
-    elevatorOpens()
+
     setTimeout(() => {
         human.style.zIndex = '1'
-    }, 250)
+    }, 150)
+
     setTimeout(() => {
         human.style.transform = 'translateX(10%)'
-        human.style.transition = 'ease-in-out 0.2s'
-    }, 250)
+        human.style.transition = '0.4s ease'
+    }, 1000)
 
-    human.classList.remove(`human-at-${humanIsAtFloor}-floor`)
-    human.classList.add(`human-at-${targetFloor}-floor`)
+
+    setTimeout(() => {
+        humanLeavesStairway()
+    }, 1500)
+
+
+}
+
+const humanLeavesStairway = () => {
+    human.style.transform = 'translateX(-1000%)'
 }
 
 const humanAppearsAtRandomFloor = () => {
@@ -96,8 +113,8 @@ const humanAppearsAtRandomFloor = () => {
 
     floorToGo.classList.add(`target-at-${humanIsAtFloor}-floor`)
 
-    generateTargetFloor(1,2,humanIsAtFloor)
-    targetFloor = generateTargetFloor(1,2,humanIsAtFloor)
+    generateTargetFloor(1, 2, humanIsAtFloor)
+    targetFloor = generateTargetFloor(1, 2, humanIsAtFloor)
 
 }
 
@@ -106,33 +123,41 @@ humanAppearsAtRandomFloor()
 // button clicks
 
 const handleButtonClicks = (floor) => {
-    elevatorComesToHuman()
-
+    elevatorArrives()
     setTimeout(() => {
         elevatorOpens()
-    }, 250)
+    }, 1000)
 
     setTimeout(() => {
         humanGoesToElevator()
         targetFloorDisappear()
-    }, 500)
+    }, 1500)
 
     setTimeout(() => {
         elevatorCloses()
-        elevatorIsClosed()
-    }, 1000)
+    }, 2000)
 
     setTimeout(() => {
         elevator.classList.remove(`elevator-at-${humanIsAtFloor}-floor`)
         elevator.classList.add(`elevator-at-${floor}-floor`)
         currentElevatorFloor = floor
-    }, 2000)
+    }, 3000)
 
     setTimeout(() => {
         elevatorOpens()
-        elevatorIsOpen()
+    }, 4000)
+
+    setTimeout(() => {
         humanLeavesElevator()
-    }, 2250)
+    }, 4050)
+
+    // setTimeout(() => {
+    //     humanLeavesElevator()
+    // }, 4010)
+
+    setTimeout(() => {
+        elevatorCloses()
+    }, 6000)
 }
 
 buttonToFloor1.addEventListener('click', () => handleButtonClicks(1));
@@ -141,31 +166,6 @@ buttonToFloor3.addEventListener('click', () => handleButtonClicks(3));
 
 
 
-// const goToFloor = () => {
-//     if (currentElevatorFloor === 1 && targetFloor === 2) {
-//         elevator.style.transform = 'translateY(-100%)'
-//     }
-//
-//     if (currentElevatorFloor === 1 && targetFloor === 3) {
-//         elevator.style.transform = 'translateY(-200%)'
-//     }
-//
-//     if (currentElevatorFloor === 2 && targetFloor === 1) {
-//         elevator.style.transform = 'translateY(100%)'
-//     }
-//
-//     if (currentElevatorFloor === 2 && targetFloor === 3) {
-//         elevator.style.transform = 'translateY(200%)'
-//     }
-//
-//     if (currentElevatorFloor === 3 && targetFloor === 1) {
-//         elevator.style.transform = 'translateY(200%)'
-//     }
-//
-//     if (currentElevatorFloor === 3 && targetFloor === 2) {
-//         elevator.style.transform = 'translateY(100%)'
-//     }
-// }
 
 
 
