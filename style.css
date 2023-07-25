@@ -3,19 +3,35 @@ body {
     padding: 0;
     margin: 0;
 }
+#button-to-1-floor,
+#button-to-2-floor,
+#button-to-3-floor {
+    transition: ease-in-out 0.2s;
+}
+
+
+#button-to-1-floor:hover,
+#button-to-2-floor:hover,
+#button-to-3-floor:hover {
+    cursor: pointer;
+    background-color: #b7b7b7;
+}
 
 * {
     box-sizing: border-box;
-}
-
-.human {
-    transition: linear 0.4s;
 }
 
 .elevator-cont {
     right: 0;
     bottom: 0;
     transition: ease-in-out 0.4s;
+}
+
+.elevator-left-door,
+.elevator-right-door  {
+background-color: #1f2123;
+    transition: ease-in-out 0.6s;
+
 }
 
 .target-floor {
@@ -52,7 +68,7 @@ body {
 }
 
 .elevator-at-2-floor {
-    bottom: 33%;
+    bottom: 33.3%;
 }
 
 .elevator-at-3-floor {
@@ -68,6 +84,20 @@ body {
     z-index: -1;
 }
 
-/*.human {*/
-/*    transform: translateX(350%);*/
+.elevator-left-door,
+.elevator-right-door {
+    transition: ease-in-out 0.5s;
+}
+
+
+
+/*.elevator-left-door-active {*/
+/*    transform: translateX(-100%);*/
+/*    background-color: #727272;*/
 /*}*/
+
+/*.elevator-right-door-active {*/
+/*    transform: translateX(100%);*/
+/*    background-color: #727272;*/
+/*}*/
+
