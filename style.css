@@ -10,8 +10,7 @@ body {
 
 .elevator-cont {
     right: 0;
-    bottom: 0;
-    transition: ease-in-out 0.4s;
+    /*transition: ease-in-out 0.4s;*/
 }
 
 /*.elevator-left-door {*/
@@ -29,15 +28,33 @@ body {
 
 .human-at-1-floor {
     bottom: 0;
-    left: 50%;
 }
 
 .human-at-2-floor {
     bottom: 33%;
-    left: 50%;
 }
 
 .human-at-3-floor {
     bottom: 66%;
+}
+
+.elevator-at-1-floor {
+    bottom: 0;
+}
+
+.elevator-at-2-floor {
+    bottom: 33%;
+}
+
+.elevator-at-3-floor {
+    bottom: 66.6%;
+}
+
+.human-near-elevator {
     left: 50%;
+}
+
+.human-in-elevator {
+    right: 0;
+    z-index: -1;
 }
