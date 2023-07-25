@@ -8,22 +8,15 @@ body {
     box-sizing: border-box;
 }
 
-.elevator-cont {
-    right: 0;
-    transition: ease-in-out 0.4s;
+.human {
+    transition: linear 0.4s;
 }
 
-/*.elevator-left-door {*/
-/*    right: 3rem;*/
-/*}*/
-
-/*.left-door:hover {*/
-/*    box-shadow: inset 0 0 0 0 #ce7676;*/
-/*}*/
-
-/*.elevator-right-door {*/
-/*    right: 0;*/
-/*}*/
+.elevator-cont {
+    right: 0;
+    bottom: 0;
+    transition: ease-in-out 0.4s;
+}
 
 .target-floor {
     left: 65%;
@@ -74,3 +67,7 @@ body {
     right: 0;
     z-index: -1;
 }
+
+/*.human {*/
+/*    transform: translateX(350%);*/
+/*}*/
