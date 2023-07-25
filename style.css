@@ -8,8 +8,36 @@ body {
     box-sizing: border-box;
 }
 
-.elevator {
-    position: absolute;
+.elevator-cont {
     right: 0;
     bottom: 0;
+    transition: ease-in-out 0.4s;
+}
+
+/*.elevator-left-door {*/
+/*    right: 3rem;*/
+/*}*/
+
+/*.left-door:hover {*/
+/*    box-shadow: inset 0 0 0 0 #ce7676;*/
+/*}*/
+
+/*.elevator-right-door {*/
+/*    right: 0;*/
+/*}*/
+
+
+.human-at-1-floor {
+    bottom: 0;
+    left: 50%;
+}
+
+.human-at-2-floor {
+    bottom: 33%;
+    left: 50%;
+}
+
+.human-at-3-floor {
+    bottom: 66%;
+    left: 50%;
 }

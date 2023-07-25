@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Elevator game</title>
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,13 +12,16 @@
 <div class="flex gap-4 justify-center items-center h-screen">
 
 <!--    elevator    -->
-    <div class="flex flex-col w-1/2 relative ">
+    <div class="flex flex-col w-96 relative ">
         <div class="stairway h-24 bg-gradient-to-b from-gray-400 to-gray-300"></div>
-        <div class="elevator-cont bg-gray-100 flex-none">
-            <div class="elevator w-24 h-24 bg-gray-700"></div>
-        </div>
+
         <div class="stairway h-24 bg-gradient-to-b from-gray-400 to-gray-300"></div>
         <div class="stairway h-24  bg-gradient-to-b from-gray-400 to-gray-300"></div>
+        <div class="elevator-cont absolute overflow-hidden bg-gray-100 w-24 flex-none flex">
+            <div class="elevator elevator-left-door w-12 h-24 bg-gray-700"></div>
+            <div class="elevator elevator-right-door w-12 h-24 bg-gray-700"></div>
+        </div>
+            <img class="human human-at-1-floor absolute h-20" src="https://pixelartmaker.com/art/376b599cd1ab101.png" alt="">
     </div>
 
 <!--    elevator buttons    -->
