@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+<div class="flex gap-4 justify-center items-center h-screen">
+
+<!--    elevator    -->
+    <div class="flex flex-col w-1/2 relative ">
+        <div class="stairway h-24 bg-gradient-to-b from-gray-400 to-gray-300"></div>
+        <div class="elevator-cont bg-gray-100 flex-none">
+            <div class="elevator w-24 h-24 bg-gray-700"></div>
+        </div>
+        <div class="stairway h-24 bg-gradient-to-b from-gray-400 to-gray-300"></div>
+        <div class="stairway h-24  bg-gradient-to-b from-gray-400 to-gray-300"></div>
+    </div>
+
+<!--    elevator buttons    -->
+    <div class="flex flex-col gap-2 justify-end">
+        <div id="button-to-3-floor" class="w-12 h-12 bg-gray-200 flex justify-center items-center font-bold">3</div>
+        <div id="button-to-2-floor" class="w-12 h-12 bg-gray-200 flex justify-center items-center font-bold">2</div>
+        <div id="button-to-1-floor" class="w-12 h-12 bg-gray-200 flex justify-center items-center font-bold">1</div>
+    </div>
+</div>
+
+</body>
+</html>
